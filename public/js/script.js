@@ -6,6 +6,7 @@ const addressInput = document.getElementById('address');
 const modal = document.getElementById('modal');
 const closeModal = document.getElementById('modal-close');
 const modalMessage = document.getElementById('modal-message');
+const modalLink = document.getElementById('modal-link');
 
 closeModal.onclick = function () {
     modal.style.display = 'none';
@@ -17,9 +18,16 @@ window.onclick = function (event) {
     }
 };
 
-async function showMessage(message, isError = false) {
+function showMessage(message, isError = false, linkURL = '') {
     modalMessage.textContent = message;
     modalMessage.style.color = isError ? 'red' : 'green';
+    if(!isError) {
+        modalLink.href = linkURL;
+        modalLink.style.display = 'inline-block';
+    } else {
+        modalLink.href = '';
+        modalLink.style.display = 'none';
+    }
     modal.style.display = 'block';
 }
 
@@ -67,8 +75,7 @@ document.getElementById('send').addEventListener('click', async () => {
         const data = await response.json();
 
         if (response.ok) {
-            console.log('Success:', data);
-            showMessage(`Transaction successful! Hash: ${data.message}`);
+            showMessage(`Transaction successful!`, false, `${data.message}`);
         } else {
             console.error('Error:', data.error);
             showMessage(`Error: ${data.error}`, true);

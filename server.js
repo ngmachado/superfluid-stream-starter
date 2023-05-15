@@ -20,6 +20,7 @@ const allowedUsers = [
 ];
 
 const allowedNetworks = ['100', '5'];
+
 const tokensByNetwork = {
     '100': '0xF2d68898557cCb2Cf4C10c3Ef2B034b2a69DAD00',
     '5': '0xF2d68898557cCb2Cf4C10c3Ef2B034b2a69DAD00'
@@ -77,7 +78,9 @@ app.post('/api/startstream', async (req, res) => {
         }
 
         const log = await createFlow(networkData, address, network);
-        res.status(200).json({ message: log.hash });
+        const link = `https://app.superfluid.finance/stream/${networkData.shortName}/${log.from}-${address}-${tokensByNetwork[network]}`;
+        console.log("link: ", link);
+        res.status(200).json({ message: link});
 
     } catch (error) {
         console.error(error);
