@@ -136,7 +136,7 @@ async function createFlow(networkData, address, network) {
     const host = new ethers.Contract(networkData.contractsV1.host, ISuperfluid.abi, wallet);
 
     console.log("wallet: ", wallet.address);
-
+    const userDataTag = ethers.hexlify(ethers.toUtf8Bytes("https://superfluid.finance"));
     const txData = cfaInterface.encodeFunctionData("createFlow", [
         tokensByNetwork[network],
         address,
@@ -144,7 +144,7 @@ async function createFlow(networkData, address, network) {
         "0x",
     ]);
 
-    const tx = await host.callAgreement(networkData.contractsV1.cfaV1, txData, "0x");
+    const tx = await host.callAgreement(networkData.contractsV1.cfaV1, txData, userDataTag);
     console.log("tx: ", tx)
     const log = await tx.wait();
     console.log(JSON.stringify(log));
