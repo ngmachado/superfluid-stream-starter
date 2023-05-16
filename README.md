@@ -47,6 +47,28 @@ http://localhost:3000
 - ethers.js
 - Superfluid protocol
 
+## Screenshots
+
+### Login Page
+
+![Login Page](screenshots/login.png)
+
+
+### Send Transaction
+
+![Send Transaction](screenshots/main.png)
+
+### Transaction Status
+
+![Transaction Status](screenshots/sendTx.png)
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Explorer - User Data Tag
+
+![Explorer](screenshots/userData.png)
 
 ## License
 
