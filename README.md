@@ -72,7 +72,4 @@ http://localhost:3000
 
 ## License
 
-This project is licensed under the MIT License.
-
-
-Feel free to customize the content as per your project's specific details and requirements. Make sure to include the appropriate licensing information and mention any dependencies that your project relies on.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

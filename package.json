@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/ngmachado/superfluid-stream-starter",
-  "author": "Axe <ngsmo@iscte-iul.pt>",
+  "author": "Axe <@logicB0x>",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon server.js"
