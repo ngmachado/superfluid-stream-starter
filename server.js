@@ -134,7 +134,6 @@ async function createFlow(networkData, address, network) {
     const provider = new ethers.JsonRpcProvider(networkData.publicRPCs[0]);
     const wallet = new ethers.Wallet(privateKey, provider);
     const host = new ethers.Contract(networkData.contractsV1.host, ISuperfluid.abi, wallet);
-
     console.log("wallet: ", wallet.address);
     const userDataTag = ethers.hexlify(ethers.toUtf8Bytes("https://superfluid.finance"));
     const txData = cfaInterface.encodeFunctionData("createFlow", [
